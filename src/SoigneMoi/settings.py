@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'soignemoiwebsite',
+    'accounts',
+
 ]
 
 MIDDLEWARE = [
@@ -75,8 +78,13 @@ WSGI_APPLICATION = 'SoigneMoi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'soignemoi_website',
+        'USER': 'soignemoi_admin',
+        'PASSWORD': 'hopitalduchnord',
+        'HOST': 'localhost',
+        'PORT': '5432'
+
     }
 }
 
@@ -118,3 +126,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+AUTH_USER_MODEL = "accounts.Visiteur"
